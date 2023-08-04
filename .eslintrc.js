@@ -17,6 +17,7 @@ module.exports = {
   },
   plugins: ["@typescript-eslint", "jest", "import"],
   rules: {
+    "@typescript-eslint/no-var-requires": "off",
     "import/prefer-default-export": "off",
     "import/no-unresolved": "off",
     "no-undef": "off",
