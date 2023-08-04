@@ -2,5 +2,4 @@
 node_modules
 coverage
 dist/
-eslintrc.js
-babel.config.js
+types.ts

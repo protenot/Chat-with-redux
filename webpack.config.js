@@ -17,14 +17,19 @@ module.exports = {
   },
   module: {
     rules: [
-      /* {
+      {
         test: /\.css$/,
         use: ["style-loader", "css-loader"],
-      }, */
+      },
       {
         test: /\.html$/,
         use: "html-loader",
       },
+      /*  {
+        test: /\.ts$/,
+        use: "ts-loader",
+        exclude: /node_modules/,
+      }, */
       {
         test: /\.(?:js|mjs|cjs|ts)$/,
         exclude: /node_modules/,
