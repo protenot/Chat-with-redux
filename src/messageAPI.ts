@@ -1,3 +1,4 @@
+import { State, Action, Message, MessageList } from "./types";
 const config = {
   firebaseBaseUrl: "https://otus-js-chat-4ed79-default-rtdb.firebaseio.com",
   firebaseCollection: "messages.json",
@@ -14,8 +15,8 @@ export async function getMessagesList() {
     },
   })
     .then((response) => response.json())
-    .then((data) =>
-      Object.values(data).map((el) => ({
+    .then((data: MessageList) =>
+      Object.values(data).map((el: Message) => ({
         ...el,
         date: new Date(el.date),
       })),
@@ -79,7 +80,8 @@ function observeWithEventSource(cb) {
   evtSource.addEventListener("put", (ev) => cb(JSON.parse(ev.data).data));
 }
 
-window.sendMessage = sendMessage;
+/* window.sendMessage = sendMessage;
 window.getMessagesList = getMessagesList;
 window.observeWithXHR = observeWithXHR;
 window.observeWithEventSource = observeWithEventSource;
+ */

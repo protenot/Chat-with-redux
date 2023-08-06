@@ -1,17 +1,17 @@
-interface Message {
+export interface Message {
   message: string;
   name: string;
-  data: number | Date;
+  date: number | Date;
 }
 
-type MessageList = Message[];
+export type MessageList = Message[];
 
-interface State {
+export interface State {
   messages: MessageList;
   name: string;
 }
 
-interface Action {
+export interface Action {
   type: string;
   payload?: any;
 }
