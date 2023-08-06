@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { State, Action } from "./types";
-function reducer(
+export function reducer(
   state: State = { name: "", messages: [] },
   action: Action,
 ): State {
