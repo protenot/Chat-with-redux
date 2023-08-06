@@ -50,6 +50,7 @@
     "*.{js,css,ts}": "prettier --write"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.5",
     "redux": "^4.2.1"
   }
 }
