@@ -8,13 +8,14 @@ import { observeWithEventSource } from "./messageAPI";
 import { store } from "./redux";
 import { Message } from "./types";
 import "./style.css";
-store.subscribe(createMessageMarkup);
 
+store.subscribe(createMessageMarkup);
+console.log("hi");
 loadMessagesList();
 
 startListeners();
+console.log();
 
-startListeners();
 observeWithEventSource((data: any) => {
   if (!Object.keys(data).includes("message")) {
     return;
