@@ -20,7 +20,10 @@ export async function getMessagesList() {
         ...el,
         date: new Date(el.date),
       })),
-    );
+    )
+    .catch(() => {
+      throw new Error("Fail to get messages");
+    });
 }
 
 // /**
@@ -29,7 +32,7 @@ export async function getMessagesList() {
 //  * @param {string} data.message
 //  * @returns {boolean}
 //  */
-export async function sendMessage(data) {
+export async function sendMessage(data: Message): Promise<boolean> {
   return fetch(`${config.firebaseBaseUrl}/${config.firebaseCollection}`, {
     method: "POST",
     body: JSON.stringify({
@@ -43,7 +46,7 @@ export async function sendMessage(data) {
   }).then((response) => response.json());
 }
 
-function observeWithXHR(cb) {
+export function observeWithXHR(cb) {
   // https://firebase.google.com/docs/reference/rest/database#section-streaming
   const xhr = new XMLHttpRequest();
   let lastResponseLength = 0;
@@ -71,7 +74,7 @@ function observeWithXHR(cb) {
   xhr.send();
 }
 
-function observeWithEventSource(cb) {
+export function observeWithEventSource(cb: (...args: [any]) => void): void {
   // https://developer.mozilla.org/en-US/docs/Web/API/EventSource/EventSource
   const evtSource = new EventSource(
     `${config.firebaseBaseUrl}/${config.firebaseCollection}`,
@@ -80,8 +83,7 @@ function observeWithEventSource(cb) {
   evtSource.addEventListener("put", (ev) => cb(JSON.parse(ev.data).data));
 }
 
-/* window.sendMessage = sendMessage;
+/*  window.sendMessage = sendMessage;
 window.getMessagesList = getMessagesList;
 window.observeWithXHR = observeWithXHR;
-window.observeWithEventSource = observeWithEventSource;
- */
+window.observeWithEventSource = observeWithEventSource; */

@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: antiquewhite;
+}
+.container {
+  width: 100%;
+  height: 100vh;
+}
+.message-container {
+  width: 100%;
+  height: 80%;
+  background-color: azure;
+}
+.input-container {
+  width: 100%;
+}
+.user-information {
+  display: flex;
+  justify-content: space-around;
+  vertical-align: center;
+  padding-top: 10px;
+}
+
+.name-button {
+  width: 25%;
+  background-color: rgb(147, 233, 233);
+  border-radius: 10%;
+}
+.text-box {
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.text-area {
+  width: 80%;
+  border: 1px solid black;
+  background-color: azure;
+}
+.text-button {
+  width: 20%;
+  background-color: rgb(23, 108, 108);
+  border-radius: 10%;
+  color: aliceblue;
+  height: 30px;
+}

@@ -1,6 +1,6 @@
 import { Action, Message, MessageList } from "./types";
 
-export const addMessage = (message: string): Action => ({
+export const addMessage = (message: Message): Action => ({
   type: "ADD_MESSAGE",
   payload: message,
 });

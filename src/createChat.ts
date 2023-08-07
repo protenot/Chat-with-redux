@@ -1,13 +1,15 @@
 import { getMessagesList, sendMessage } from "./messageAPI";
-import { addMessage, showMessages, createUser } from "./action";
-import { Message, MessageList } from "./types";
+import { showMessages, createUser } from "./action";
+import { Message } from "./types";
 import { store } from "./redux";
+
 export async function loadMessagesList(): Promise<void> {
   try {
     const messages = await getMessagesList();
     store.dispatch(showMessages(messages?.slice(-20) ?? []));
   } catch (error) {
-    alert("Error");
+    console.log("No messages");
+    //alert("Error");
   }
 }
 
@@ -59,6 +61,7 @@ export function startListeners(): void {
   document.querySelector(".name-button")?.addEventListener("click", () => {
     const userName = userNameInput.value.trim();
     if (!userName) {
+      alert("Enter username");
       return;
     }
     store.dispatch(createUser(userName));
