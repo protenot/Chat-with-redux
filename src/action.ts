@@ -1,4 +1,4 @@
-import { Action, Message, MessageList } from "./types";
+import { Action, Message, MessageList, State } from "./types";
 
 export const addMessage = (message: Message): Action => ({
   type: "ADD_MESSAGE",

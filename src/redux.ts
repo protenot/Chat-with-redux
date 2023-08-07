@@ -13,7 +13,7 @@ export function reducer(
     case "ADD_MESSAGE":
       return {
         ...state,
-        messages: [...state.messages, ...action.payload],
+        messages: [...state.messages, action.payload],
       };
     case "CREATE_USER":
       return {

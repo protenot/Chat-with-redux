@@ -9,6 +9,7 @@ export type MessageList = Message[];
 export interface State {
   messages: MessageList;
   name: string;
+  date?: Date | number;
 }
 
 export interface Action {
