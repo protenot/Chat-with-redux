@@ -25,9 +25,18 @@ body {
 .message-name {
   font-weight: bold;
   padding-right: 5px;
+  width: 15%;
+}
+.message-text {
+  width: 65%;
+}
+.delete-button {
+  width: 10%;
+  text-align: center;
 }
 .message-date {
   font-size: 11px;
+  width: 10%;
 }
 .input-container {
   width: 100%;

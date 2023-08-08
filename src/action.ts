@@ -14,3 +14,7 @@ export const createUser = (name: string): Action => ({
   type: "CREATE_USER",
   payload: name,
 });
+export const deleteMessage = (message: Message): Action => ({
+  type: "DELETE_MESSAGE",
+  payload: message,
+});

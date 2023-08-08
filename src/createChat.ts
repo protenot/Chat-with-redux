@@ -1,5 +1,5 @@
 import { getMessagesList, sendMessage } from "./messageAPI";
-import { showMessages, createUser } from "./action";
+import { showMessages, createUser, deleteMessage } from "./action";
 import { Message, MessageList } from "./types";
 import { store } from "./redux";
 import { emojiProvider } from "emoji-provider";
@@ -33,7 +33,7 @@ export function createMessageMarkup(): void {
   //console.log(name);
 
   if (messageContainer) {
-    console.log(messageContainer);
+    // console.log(messageContainer);
     messageContainer.innerHTML = "";
   }
   console.log("112");
@@ -46,15 +46,16 @@ export function createMessageMarkup(): void {
             <p class = "message-text">${emojiProvider.replaceEmoticonsWithEmojis(
               message.message,
             )}</p>
+            <button class = "delete-button">Delete</button>
             <p class = "message-date">${date.toLocaleString()}</p>
             </div>
         `;
-    console.log(messageTemplate);
+    //console.log(messageTemplate);
     if (messageContainer) {
       console.log("113");
       messageContainer.insertAdjacentHTML("beforeend", messageTemplate);
 
-      console.log(messageContainer);
+      //  console.log(messageContainer);
     }
   });
   console.log(messageContainer);
@@ -78,7 +79,7 @@ export function startListeners(): void {
       if (textArea) {
         const textMessage = textArea.innerHTML.trim();
 
-        console.log(textMessage);
+        //console.log(textMessage);
         if (!textMessage.length) {
           return;
         }
@@ -112,4 +113,18 @@ export function startListeners(): void {
       }
     });
   }
+  const container: HTMLDivElement | null =
+    document.querySelector(".message-container");
+  container?.addEventListener("click", (event) => {
+    if (event.target instanceof HTMLElement) {
+      const isButton = event.target.tagName === "BUTTON";
+
+      if (!isButton) {
+        return;
+      }
+      console.log(event.target);
+      (event.target.closest(".message") as HTMLElement).remove();
+      //store.dispatch(deleteMessage())
+    }
+  });
 }
