@@ -70,6 +70,7 @@ export function startListeners(): void {
   const textButton: HTMLButtonElement | null =
     document.querySelector(".text-button");
   if (textButton) {
+    //доавляем слушателя на кнопку отправки текста
     textButton.addEventListener("click", async () => {
       if (textArea) {
         const textMessage = textArea.innerHTML.trim();
@@ -95,6 +96,7 @@ export function startListeners(): void {
   const nameButton: HTMLButtonElement | null =
     document.querySelector(".name-button");
   if (nameButton) {
+    //доавляем слушателя на кнопку отправки имени
     nameButton.addEventListener("click", () => {
       if (userNameInput) {
         const userName = userNameInput.value.trim();
