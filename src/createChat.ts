@@ -2,7 +2,8 @@ import { getMessagesList, sendMessage } from "./messageAPI";
 import { showMessages, createUser } from "./action";
 import { Message, MessageList } from "./types";
 import { store } from "./redux";
-
+import { emojiProvider } from "emoji-provider";
+//const {emojiProvider} =require( 'emoji-provider');
 export async function loadMessagesList(): Promise<void> {
   console.log("222");
   try {
@@ -42,7 +43,9 @@ export function createMessageMarkup(): void {
     const messageTemplate: any = `
         <div class = 'message'>
             <p class = "message-name">${message.name}</p>
-            <p class = "message-text">${message.message}</p>
+            <p class = "message-text">${emojiProvider.replaceEmoticonsWithEmojis(
+              message.message,
+            )}</p>
             <p class = "message-date">${date.toLocaleString()}</p>
             </div>
         `;

@@ -5,6 +5,7 @@ import {
 } from "./createChat";
 import { getMessagesList, sendMessage } from "./messageAPI";
 import { store } from "./redux";
+//import { emojiProvider } from 'emoji-provider';
 beforeEach(() => {
   document.body.innerHTML = `
 <div class="container">
