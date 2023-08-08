@@ -2,10 +2,10 @@ name: NodeJS with Webpack
 
 on:
   push:
-    branches: [ "create-chat" ]
-    
+    branches: ["create-chat"]
+
   pull_request:
-    branches: [ "create-chat" ]
+    branches: ["create-chat"]
 
 permissions:
   contents: write
@@ -21,20 +21,19 @@ jobs:
         node-version: [18.x]
 
     steps:
-    - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
 
-    - name: Build
-      run: |
-        npm install
-          npm run build
+      - name: Build
+        run: |
+          npm install
+            npm run build
 
-    - name: Deploy
-      uses: JamesIves/github-pages-deploy-action@v4
-      with:
-        folder: dist
-
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist
